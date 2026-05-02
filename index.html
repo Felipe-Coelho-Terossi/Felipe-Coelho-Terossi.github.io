@@ -3,213 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Coelho Terossi | Portfólio</title>
+    <title>Felipe Terossi | Engenharia de Dados & IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Estilos baseados em um design Dark / Tech Profissional */
         :root {
-            --bg-color: #0f172a;
-            --text-color: #cbd5e1;
-            --primary-color: #38bdf8;
-            --card-bg: #1e293b;
-            --border-color: #334155;
+            --bg-dark: #050810;
+            --card-bg: rgba(17, 25, 40, 0.75);
+            --accent-blue: #00d2ff;
+            --accent-purple: #9d50bb;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% -20%, #1e293b, var(--bg-dark));
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1000px;
+        /* Barra de Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(5, 8, 16, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1100px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 0 20px;
         }
 
-        header {
-            padding: 80px 0 50px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        header h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
+        .logo {
+            font-weight: 700;
             font-size: 1.2rem;
-            color: var(--primary-color);
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
             margin-bottom: 20px;
         }
 
-        .social-links a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border: 1px solid var(--primary-color);
-            border-radius: 5px;
-            transition: all 0.3s ease;
+        .hero-content p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            color: #0f172a;
-        }
-
-        section {
-            padding: 50px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        section h2 {
-            color: #ffffff;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            display: inline-block;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 5px;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            text-align: justify;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-
-        .card h3 {
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .card span.tag {
-            background-color: var(--primary-color);
-            color: #0f172a;
+        .badge {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--accent-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
             font-size: 0.8rem;
-            padding: 3px 8px;
-            border-radius: 3px;
-            margin-right: 5px;
-            font-weight: bold;
+            border: 1px solid var(--accent-blue);
+            margin-bottom: 20px;
+            display: inline-block;
         }
 
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
+        /* Seções Gerais */
+        section {
+            padding: 100px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            flex-grow: 1;
+        }
+
+        /* Sistema de Abas (Tabs) */
+        .tabs-container {
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: flex;
+            min-height: 500px;
+        }
+
+        .tabs-menu {
+            width: 250px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn {
+            width: 100%;
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tab-btn i { font-size: 1.1rem; }
+
+        .tab-btn.active {
+            color: var(--accent-blue);
+            background: rgba(0, 210, 255, 0.05);
+            border-right: 2px solid var(--accent-blue);
+        }
+
+        .tab-content {
+            padding: 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards e Grids */
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .tag-group { margin: 15px 0; }
+        
+        .tag {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-right: 8px;
+            color: var(--accent-blue);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .tabs-container { flex-direction: column; }
+            .tabs-menu { width: 100%; display: flex; overflow-x: auto; }
+            .tab-btn { white-space: nowrap; padding: 15px; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover { opacity: 0.9; transform: scale(1.02); }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Felipe Coelho Terossi</h1>
-            <p>Estudante de Sistemas de Informação (UNICAMP) | Inteligência Artificial & Dados</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank">LinkedIn</a>
-                <a href="http://lattes.cnpq.br/5462019420393495" target="_blank">Currículo Lattes</a>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">FELIPE TEROSSI</div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#experiencia">Experiência</a>
                 <a href="mailto:f281413@dac.unicamp.br">Contato</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <div class="container">
-        <section id="sobre">
-            <h2>Minha História</h2>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Disponível para Projetos & Estágio</span>
+            <h1>Construindo o futuro com <br><span style="color: var(--accent-blue)">Inteligência Artificial.</span></h1>
+            <p>Estudante de Sistemas de Informação na UNICAMP, pesquisador em Deep Learning e apaixonado por transformar dados em soluções reais.</p>
+            <a href="#projetos" class="btn-primary">Ver Portfólio</a>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <h2 class="section-title"><i class="fa-solid fa-user-astronaut"></i> Sobre Mim</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
             <div class="about-text">
-                <p>Sou estudante do Bacharelado em Sistemas de Informação na <strong>Universidade Estadual de Campinas (UNICAMP)</strong>, campus FT em Limeira. Minha jornada na tecnologia é movida pela paixão por resolver problemas complexos através de dados e algoritmos.</p>
-                <br>
-                <p>Acredito fortemente no poder da inovação acadêmica e da educação. Por um lado, atuo no avanço da ciência de dados através da minha <strong>Iniciação Científica</strong>, explorando como modelos avançados de Inteligência Artificial podem transformar a indústria de energia. Por outro, busco disseminar o conhecimento tecnológico, atuando como coautor e facilitador no <strong>Projeto IDEIA</strong>, ajudando colegas a darem seus primeiros passos em programação.</p>
-                <br>
-                <p>Estou em constante aprendizado, seja através de competições de ideação com a equipe Tecnomágicos ou participando de eventos de ponta sobre IA no mercado. Meu objetivo é construir soluções que impactem positivamente a sociedade e as organizações.</p>
+                <p style="margin-bottom: 20px;">Minha trajetória na tecnologia começou na <strong>UNICAMP</strong>, onde descobri que a programação é a ferramenta mais poderosa para escalar impacto humano. Hoje, foco minha carreira na interseção entre a **Academia** (Pesquisa de Ponta) e o **Mercado** (Produtos de IA).</p>
+                <p>Através da Iniciação Científica, mergulho na complexidade dos algoritmos de <em>Deep Learning</em>, enquanto no Projeto IDEIA e em aplicações como o PDF Summarizer, busco tornar essa tecnologia acessível e útil para o dia a dia.</p>
             </div>
-        </section>
-
-        <section id="projetos">
-            <h2>Pesquisa & Projetos</h2>
-            <div class="grid">
-                
-                <div class="card">
-                    <h3>Pesquisa: Deep Learning em Petrofísica</h3>
-                    <p><strong>Orientador:</strong> Prof. Dr. João Roberto Bertini Junior</p>
-                    <br>
-                    <p>Iniciação Científica focada em <em>Domain Adaptation</em> e Transfer Learning utilizando arquiteturas de aprendizado profundo sequenciais (híbridos de CNN e LSTM). O projeto visa prever a vazão de petróleo em novos campos utilizando redes neurais para lidar com a escassez de dados.</p>
-                    <br>
-                    <div>
-                        <span class="tag">Python</span>
-                        <span class="tag">Deep Learning</span>
-                        <span class="tag">TensorFlow/PyTorch</span>
-                    </div>
+            <div style="background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                <h3 style="margin-bottom: 15px; color: var(--accent-blue);">Hard Skills</h3>
+                <div class="tag-group">
+                    <span class="tag">Python (Avançado)</span>
+                    <span class="tag">TensorFlow / Keras</span>
+                    <span class="tag">Deep Learning (CNN/LSTM)</span>
+                    <span class="tag">Streamlit</span>
+                    <span class="tag">Engenharia de Prompt</span>
+                    <span class="tag">Git / GitHub</span>
+                    <span class="tag">Data Analysis</span>
                 </div>
-
-                <div class="card">
-                    <h3>Projeto IDEIA - Ensino de Python</h3>
-                    <p><strong>Orientação:</strong> Prof. Dr. Yuri Alexandre Meyer</p>
-                    <br>
-                    <p>Atuo como docente e coautor da "Apostila de Programação Básica em Python", desenvolvida com fins didáticos para nivelamento e acompanhamento de alunos na UNICAMP. O foco é transmitir lógica de programação e pensamento computacional de forma clara e objetiva.</p>
-                    <br>
-                    <div>
-                        <span class="tag">Python</span>
-                        <span class="tag">Ensino</span>
-                        <span class="tag">Lógica de Programação</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Analista de Documentos IA (PDF Summarizer)</h3>
-                    <p><strong>Projeto de Portfólio</strong></p>
-                    <br>
-                    <p>Aplicação web inteligente desenvolvida com Streamlit e integrada à API do Google Gemini (1.5 Flash). Permite o upload de PDFs para interação dinâmica via chat, contendo proteção de uso e diferentes modos de operação (Resumo, Análise Técnica, Tradução).</p>
-                    <br>
-                    <div>
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">Gemini API</span>
-                        <span class="tag">LLMs</span>
-                    </div>
-                </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="certificados">
-            <h2>Formação Complementar</h2>
-            <ul>
-                <li style="margin-bottom: 10px;"><strong>Conquer AI Summit (2026)</strong> - Carga horária de 3h, focado no impacto e aplicações da Inteligência Artificial nos negócios (Conquer Business School).</li>
-                <li style="margin-bottom: 10px;"><strong>Membro Equipe Tecnomágicos (2026)</strong> - Participação na ideação e proposição de valor de soluções inovadoras.</li>
-            </ul>
-        </section>
-    </div>
+    <section id="projetos">
+        <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> Projetos em Destaque</h2>
+        
+        <div class="tabs-container">
+            <div class="tabs-menu">
+                <button class="tab-btn active" onclick="openTab(event, 'summarizer')">
+                    <i class="fa-solid fa-file-pdf"></i> PDF Summarizer IA
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'oil')">
+                    <i class="fa-solid fa-droplet"></i> Pesquisa: Deep Oil
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'ideia')">
+                    <i class="fa-solid fa-book-open"></i> Projeto IDEIA
+                </button>
+                <button class="tab-btn" onclick="openTab(event, 'tecnomagicos')">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Tecnomágicos
+                </button>
+            </div>
 
-    <footer>
-        <p>&copy; 2026 Felipe Coelho Terossi. Construindo soluções em Dados e IA.</p>
+            <div id="summarizer" class="tab-content active">
+                <div class="project-header">
+                    <div>
+                        <h3>Analista de Documentos Inteligente</h3>
+                        <p style="color: var(--accent-blue); font-size: 0.8rem;">SaaS de IA / MVP</p>
+                    </div>
+                    <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" style="color: white;"><i class="fa-brands fa-github fa-xl"></i></a>
+                </div>
+                <p style="margin-bottom: 20px;">Uma ferramenta de produtividade que utiliza o **Gemini 1.5 Flash** para permitir que qualquer usuário converse com documentos complexos.</p>
+                <ul style="list-style: none; color: var(--text-dim); font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-blue);"></i> <strong>Blindagem de API:</strong> Implementação de travas de segurança (máx 5MB/10 páginas) para controle de custos de nuvem.</li>
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--accent-blue);"></i> <strong>UX Personalizada:</strong> Modos de persona (Resumidor, Analista, Tradutor).</li>
+                    <li><i class="fa-solid fa-check" style="color: var(--accent-blue);"></i> <strong>Arquitetura:</strong> Streamlit + LangChain (concept) + Google AI.</li>
+                </ul>
+                <div class="tag-group">
+                    <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LLM</span>
+                </div>
+            </div>
+
+            <div id="oil" class="tab-content">
+                <div class="project-header">
+                    <div>
+                        <h3>Deep Learning em Petrofísica</h3>
+                        <p style="color: var(--accent-blue); font-size: 0.8rem;">Iniciação Científica / UNICAMP</p>
+                    </div>
+                </div>
+                <p style="margin-bottom: 20px;">Pesquisa de ponta focada em <strong>Domain Adaptation</strong> para a indústria de Petróleo e Gás.</p>
+                <p style="color: var(--text-dim); margin-bottom: 15px;">Utilização de arquiteturas híbridas **CNN-LSTM** para prever a vazão de petróleo em novos campos onde os dados são escassos, aplicando transferência de aprendizado de campos maduros.</p>
+                <div class="tag-group">
+                    <span class="tag">TensorFlow</span><span class="tag">CNN</span><span class="tag">LSTM</span><span class="tag">Time Series</span>
+                </div>
+            </div>
+
+            <div id="ideia" class="tab-content">
+                <div class="project-header">
+                    <div>
+                        <h3>Educação: Projeto IDEIA</h3>
+                        <p style="color: var(--accent-blue); font-size: 0.8rem;">Impacto Social / Ensino</p>
+                    </div>
+                </div>
+                <p style="margin-bottom: 20px;">Coautor da apostila de programação básica em **Python** da UNICAMP campus Limeira.</p>
+                <p style="color: var(--text-dim);">Focado em democratizar o acesso à tecnologia para alunos de diversas áreas, estruturando uma metodologia didática que vai da lógica básica até aplicações práticas de dados.</p>
+                <div class="tag-group">
+                    <span class="tag">Educação</span><span class="tag">Python</span><span class="tag">Didática</span>
+                </div>
+            </div>
+
+            <div id="tecnomagicos" class="tab-content">
+                <div class="project-header">
+                    <div>
+                        <h3>Equipe Tecnomágicos</h3>
+                        <p style="color: var(--accent-blue); font-size: 0.8rem;">Inovação & Ideação</p>
+                    </div>
+                </div>
+                <p style="margin-bottom: 20px;">Participação em competições de ideação e negócios.</p>
+                <p style="color: var(--text-dim);">Focado no desenvolvimento de soft skills, análise de viabilidade de produtos de tecnologia e criação de propostas de valor inovadoras para o mercado de TI.</p>
+                <div class="tag-group">
+                    <span class="tag">Soft Skills</span><span class="tag">Inovação</span><span class="tag">Negócios</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 50px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+        <p style="color: var(--text-dim); margin-bottom: 20px;">© 2026 Felipe Terossi. Desenvolvido com código limpo e paixão por IA.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank" style="color: var(--text-dim); margin: 0 10px;"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+            <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank" style="color: var(--text-dim); margin: 0 10px;"><i class="fa-brands fa-github fa-xl"></i></a>
+        </div>
     </footer>
 
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </body>
 </html>
