@@ -1,10 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Portfólio Felipe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Coelho Terossi | Portfólio</title>
+    <style>
+        /* Estilos baseados em um design Dark / Tech Profissional */
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #cbd5e1;
+            --primary-color: #38bdf8;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 80px 0 50px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: #0f172a;
+        }
+
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .card span.tag {
+            background-color: var(--primary-color);
+            color: #0f172a;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Site em Construção 🚧</h1>
-    <p>Em breve, os melhores projetos de IA do Felipe estarão aqui!</p>
+
+    <header>
+        <div class="container">
+            <h1>Felipe Coelho Terossi</h1>
+            <p>Estudante de Sistemas de Informação (UNICAMP) | Inteligência Artificial & Dados</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank">LinkedIn</a>
+                <a href="http://lattes.cnpq.br/5462019420393495" target="_blank">Currículo Lattes</a>
+                <a href="mailto:f281413@dac.unicamp.br">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="sobre">
+            <h2>Minha História</h2>
+            <div class="about-text">
+                <p>Sou estudante do Bacharelado em Sistemas de Informação na <strong>Universidade Estadual de Campinas (UNICAMP)</strong>, campus FT em Limeira. Minha jornada na tecnologia é movida pela paixão por resolver problemas complexos através de dados e algoritmos.</p>
+                <br>
+                <p>Acredito fortemente no poder da inovação acadêmica e da educação. Por um lado, atuo no avanço da ciência de dados através da minha <strong>Iniciação Científica</strong>, explorando como modelos avançados de Inteligência Artificial podem transformar a indústria de energia. Por outro, busco disseminar o conhecimento tecnológico, atuando como coautor e facilitador no <strong>Projeto IDEIA</strong>, ajudando colegas a darem seus primeiros passos em programação.</p>
+                <br>
+                <p>Estou em constante aprendizado, seja através de competições de ideação com a equipe Tecnomágicos ou participando de eventos de ponta sobre IA no mercado. Meu objetivo é construir soluções que impactem positivamente a sociedade e as organizações.</p>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2>Pesquisa & Projetos</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <h3>Pesquisa: Deep Learning em Petrofísica</h3>
+                    <p><strong>Orientador:</strong> Prof. Dr. João Roberto Bertini Junior</p>
+                    <br>
+                    <p>Iniciação Científica focada em <em>Domain Adaptation</em> e Transfer Learning utilizando arquiteturas de aprendizado profundo sequenciais (híbridos de CNN e LSTM). O projeto visa prever a vazão de petróleo em novos campos utilizando redes neurais para lidar com a escassez de dados.</p>
+                    <br>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Deep Learning</span>
+                        <span class="tag">TensorFlow/PyTorch</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Projeto IDEIA - Ensino de Python</h3>
+                    <p><strong>Orientação:</strong> Prof. Dr. Yuri Alexandre Meyer</p>
+                    <br>
+                    <p>Atuo como docente e coautor da "Apostila de Programação Básica em Python", desenvolvida com fins didáticos para nivelamento e acompanhamento de alunos na UNICAMP. O foco é transmitir lógica de programação e pensamento computacional de forma clara e objetiva.</p>
+                    <br>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Ensino</span>
+                        <span class="tag">Lógica de Programação</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Analista de Documentos IA (PDF Summarizer)</h3>
+                    <p><strong>Projeto de Portfólio</strong></p>
+                    <br>
+                    <p>Aplicação web inteligente desenvolvida com Streamlit e integrada à API do Google Gemini (1.5 Flash). Permite o upload de PDFs para interação dinâmica via chat, contendo proteção de uso e diferentes modos de operação (Resumo, Análise Técnica, Tradução).</p>
+                    <br>
+                    <div>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Gemini API</span>
+                        <span class="tag">LLMs</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certificados">
+            <h2>Formação Complementar</h2>
+            <ul>
+                <li style="margin-bottom: 10px;"><strong>Conquer AI Summit (2026)</strong> - Carga horária de 3h, focado no impacto e aplicações da Inteligência Artificial nos negócios (Conquer Business School).</li>
+                <li style="margin-bottom: 10px;"><strong>Membro Equipe Tecnomágicos (2026)</strong> - Participação na ideação e proposição de valor de soluções inovadoras.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Felipe Coelho Terossi. Construindo soluções em Dados e IA.</p>
+    </footer>
+
 </body>
 </html>
