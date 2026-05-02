@@ -102,6 +102,15 @@
             padding-bottom: 10px;
         }
 
+        /* Customização da scrollbar para ficar bonita no mobile */
+        .tabs-header::-webkit-scrollbar {
+            height: 4px;
+        }
+        .tabs-header::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 10px;
+        }
+
         .tab-btn {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -185,6 +194,8 @@
             color: var(--accent-blue);
             border-radius: 4px;
             margin-right: 8px;
+            display: inline-block;
+            margin-bottom: 8px;
         }
 
     </style>
@@ -202,7 +213,7 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" id="sobre">
         <h1>IA, Dados e Inovação.</h1>
         <p style="color: var(--text-dim); font-size: 1.2rem;">Estudante de Sistemas de Informação na UNICAMP, focado no desenvolvimento de soluções escaláveis utilizando Machine Learning e Engenharia de Dados.</p>
     </header>
@@ -213,6 +224,7 @@
         <div class="tabs-header">
             <button class="tab-btn active" onclick="openTab(event, 'oil')">Petrofísica & Deep Learning</button>
             <button class="tab-btn" onclick="openTab(event, 'summarizer')">PDF Summarizer IA</button>
+            <button class="tab-btn" onclick="openTab(event, 'erp')">SaaS & BI Analytics</button>
             <button class="tab-btn" onclick="openTab(event, 'ideia')">Ensino & Python</button>
             <button class="tab-btn" onclick="openTab(event, 'tecnomagicos')">Tecnomágicos</button>
         </div>
@@ -246,7 +258,24 @@
             </div>
             <div class="project-links">
                 <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" class="btn-link btn-github"><i class="fa-brands fa-github"></i> Ver Código</a>
-                <a href="https://api-pdf-summarizer-en3bmxgtyajrwsffyambyt.streamlit.app" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-rocket"></i> Testar App</a>
+                <a href="https://pdf-summarizer-felipe-terossi.streamlit.app" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-rocket"></i> Testar App</a>
+            </div>
+        </div>
+
+        <div id="erp" class="tab-content">
+            <h3 class="project-title">Sistema de Gestão ERP Completo (SaaS)</h3>
+            <p class="project-meta">Engenharia de Software // Data Analytics // Bancos de Dados</p>
+            <div class="project-description">
+                <p>Criação end-to-end de um <strong>Sistema ERP (Software as a Service)</strong> projetado para gestão comercial. O projeto simula a arquitetura de aplicações corporativas reais, incluindo sistemas de <strong>Autenticação de Usuários</strong>, Painel de Configurações Administrativas e um Ponto de Venda (PDV) interativo.</p>
+                <br>
+                <p>Um dos grandes diferenciais técnicos é a integração de um banco de dados <strong>SQLite</strong> para gerenciamento de estoque (CRUD completo) e a construção de um <strong>Dashboard de Business Intelligence</strong> com Plotly Graph Objects, realizando o tratamento de datas e cálculo de lucro líquido em tempo real utilizando Pandas.</p>
+            </div>
+            <div class="tag-group">
+                <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly (BI)</span><span class="tag">SQLite</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Felipe-Coelho-Terossi/ERP-Pastelaria-Python.git" target="_blank" class="btn-link btn-github"><i class="fa-brands fa-github"></i> Ver Código</a>
+                <a href="https://gestao-pastel-felipe-terossi.streamlit.app/g" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-rocket"></i> Testar App</a>
             </div>
         </div>
 
