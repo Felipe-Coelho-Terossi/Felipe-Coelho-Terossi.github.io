@@ -1,352 +1,313 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Terossi | IA & Data Science</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-dark: #020617;
-            --card-bg: rgba(15, 23, 42, 0.8);
-            --accent-blue: #38bdf8;
-            --accent-purple: #818cf8;
-            --text-main: #f1f5f9;
-            --text-dim: #94a3b8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 50% 0%, #1e293b, var(--bg-dark));
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 15px 0;
-            background: rgba(2, 6, 23, 0.9);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--accent-blue);
-        }
-
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--accent-blue); }
-
-        /* Hero */
-        .hero {
-            padding: 150px 20px 80px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Tabs System */
-        .tabs-section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .tabs-header {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 2px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-        }
-
-        /* Customização da scrollbar para ficar bonita no mobile */
-        .tabs-header::-webkit-scrollbar {
-            height: 4px;
-        }
-        .tabs-header::-webkit-scrollbar-thumb {
-            background: var(--accent-blue);
-            border-radius: 10px;
-        }
-
-        .tab-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-dim);
-            padding: 12px 25px;
-            border-radius: 8px 8px 0 0;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: 0.3s;
-        }
-
-        .tab-btn.active {
-            background: var(--card-bg);
-            color: var(--accent-blue);
-            border-bottom: 2px solid var(--accent-blue);
-        }
-
-        .tab-content {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 0 12px 12px 12px;
-            padding: 40px;
-            display: none;
-            min-height: 400px;
-        }
-
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Project Styling */
-        .project-title { font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
-        .project-meta { color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 25px; font-weight: 600; }
-        .project-description { margin-bottom: 30px; color: var(--text-dim); font-size: 1.05rem; }
-        
-        .project-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .btn-link {
-            padding: 8px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-
-        .btn-github { background: #333; color: #fff; }
-        .btn-demo { background: var(--accent-blue); color: #020617; font-weight: 600; }
-
-        /* Contact Footer */
-        footer {
-            padding: 100px 20px;
-            background: #010409;
-            text-align: center;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-
-        .contact-item i { color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 15px; }
-        .contact-item a { color: var(--text-dim); text-decoration: none; display: block; transition: 0.3s; }
-        .contact-item a:hover { color: var(--accent-blue); }
-
-        .tag {
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border-radius: 4px;
-            margin-right: 8px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felipe Terossi | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif;scroll-behavior:smooth}
+:root{--bg:#020617;--card:rgba(15,23,42,0.85);--blue:#38bdf8;--purple:#818cf8;--text:#f1f5f9;--dim:#94a3b8;--border:rgba(255,255,255,0.07)}
+body{background:var(--bg);color:var(--text);line-height:1.6}
+nav{position:fixed;top:0;width:100%;padding:14px 0;background:rgba(2,6,23,0.92);backdrop-filter:blur(16px);z-index:1000;border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 24px}
+.logo{font-weight:700;font-size:1rem;color:var(--blue);letter-spacing:0.02em}
+.nav-links a{color:var(--dim);text-decoration:none;margin-left:28px;font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;transition:.2s}
+.nav-links a:hover{color:var(--blue)}
+.hero{padding:160px 24px 90px;text-align:center;max-width:860px;margin:0 auto}
+.hero-badge{display:inline-block;padding:5px 14px;border:1px solid rgba(56,189,248,0.3);border-radius:20px;color:var(--blue);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:700;margin-bottom:20px;background:linear-gradient(160deg,#fff 40%,#475569);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+.hero p{color:var(--dim);font-size:1.1rem;max-width:580px;margin:0 auto 36px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{padding:11px 24px;background:var(--blue);color:#020617;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:.2s}
+.btn-primary:hover{opacity:.9}
+.btn-secondary{padding:11px 24px;border:1px solid rgba(255,255,255,0.15);color:var(--text);border-radius:8px;text-decoration:none;font-size:0.9rem;transition:.2s}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+.stats{display:flex;gap:40px;justify-content:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)}
+.stat-n{font-size:2rem;font-weight:700;color:#fff}
+.stat-l{font-size:0.8rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+section.projects{padding:80px 24px;max-width:1100px;margin:0 auto}
+.section-label{font-size:0.75rem;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.section-title{font-size:1.8rem;font-weight:700;margin-bottom:40px;color:#fff}
+.tabs-bar{display:flex;gap:6px;margin-bottom:0;overflow-x:auto;padding-bottom:0;scrollbar-width:none}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tab-btn{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-bottom:none;color:var(--dim);padding:10px 20px;border-radius:8px 8px 0 0;cursor:pointer;white-space:nowrap;font-size:0.82rem;transition:.2s;font-family:'Inter',sans-serif}
+.tab-btn.active{background:var(--card);color:var(--blue);border-color:rgba(56,189,248,0.3);border-bottom:1px solid var(--card)}
+.tab-panel{background:var(--card);border:1px solid rgba(56,189,248,0.15);border-radius:0 12px 12px 12px;padding:44px;display:none;min-height:380px}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:40px;animation:fin .35s ease}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.proj-badge{display:inline-block;padding:3px 10px;background:rgba(56,189,248,0.1);color:var(--blue);border-radius:4px;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.proj-title{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+.proj-meta{color:var(--blue);font-size:0.82rem;font-weight:500;margin-bottom:18px}
+.proj-desc{color:var(--dim);font-size:0.95rem;line-height:1.75}
+.proj-desc p+p{margin-top:12px}
+.proj-right{display:flex;flex-direction:column;justify-content:space-between}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
+.tag{font-size:0.72rem;padding:4px 11px;background:rgba(255,255,255,0.05);color:var(--dim);border-radius:4px;border:1px solid var(--border)}
+.proj-links{display:flex;gap:10px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border);margin-top:auto}
+.btn-gh{padding:9px 18px;background:rgba(255,255,255,0.07);color:#fff;border-radius:7px;text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:7px;transition:.2s;border:1px solid var(--border)}
+.btn-gh:hover{background:rgba(255,255,255,0.12)}
+.btn-demo{padding:9px 18px;background:var(--blue);color:#020617;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:7px;transition:.2s}
+.btn-demo:hover{opacity:.88}
+.highlight-box{background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.12);border-radius:10px;padding:20px;margin-top:16px}
+.highlight-box h4{font-size:0.8rem;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.highlight-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.85rem;color:var(--dim)}
+.highlight-row:last-child{border-bottom:none}
+.highlight-row i{color:var(--blue);width:16px;font-size:0.9rem}
+footer{padding:100px 24px;background:#010409;text-align:center;border-top:1px solid var(--border)}
+footer h2{font-size:2rem;font-weight:700;margin-bottom:10px}
+footer p{color:var(--dim);margin-bottom:40px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;max-width:860px;margin:0 auto 50px}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:.2s}
+.contact-card:hover{border-color:rgba(56,189,248,0.3)}
+.contact-card i{color:var(--blue);font-size:1.4rem;margin-bottom:12px;display:block}
+.contact-card a{color:var(--dim);text-decoration:none;font-size:0.9rem;transition:.2s}
+.contact-card a:hover{color:var(--blue)}
+.contact-card p{color:#4a5568;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+@media(max-width:700px){.tab-panel.active{grid-template-columns:1fr}.stats{gap:24px}}
+</style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-content">
-            <div class="logo">Felipe Terossi // Portfolio</div>
-            <div class="nav-links">
-                <a href="#sobre">Sobre</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#contato">Contato</a>
-            </div>
-        </div>
-    </nav>
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Felipe Terossi</div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
 
-    <header class="hero" id="sobre">
-        <h1>IA, Dados e Inovação.</h1>
-        <p style="color: var(--text-dim); font-size: 1.2rem;">Estudante de Sistemas de Informação na UNICAMP, focado no desenvolvimento de soluções escaláveis utilizando Machine Learning e Engenharia de Dados.</p>
-    </header>
+<header class="hero" id="sobre">
+  <div class="hero-badge">Disponível para estágio</div>
+  <h1>Engenharia de Software & Inteligência Artificial</h1>
+  <p>Estudante de Sistemas de Informação na UNICAMP, construindo soluções reais com Machine Learning, APIs e Engenharia de Dados.</p>
+  <div class="hero-btns">
+    <a href="#projetos" class="btn-primary">Ver projetos</a>
+    <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+  </div>
+  <div class="stats">
+    <div><div class="stat-n">6+</div><div class="stat-l">Projetos</div></div>
+    <div><div class="stat-n">3º</div><div class="stat-l">Semestre</div></div>
+    <div><div class="stat-n">UNICAMP</div><div class="stat-l">Instituição</div></div>
+  </div>
+</header>
 
-    <section id="projetos" class="tabs-section">
-        <h2 style="margin-bottom: 30px; font-size: 1.5rem; color: #fff;">Projetos, Pesquisa & Extensão</h2>
-        
-        <div class="tabs-header">
-            <button class="tab-btn active" onclick="openTab(event, 'oil')">Petrofísica & Deep Learning</button>
-            <button class="tab-btn" onclick="openTab(event, 'summarizer')">PDF Summarizer IA</button>
-            <button class="tab-btn" onclick="openTab(event, 'erp')">SaaS & BI Analytics</button>
-            <button class="tab-btn" onclick="openTab(event, 'ideia')">Projeto IDEIA</button>
-            <button class="tab-btn" onclick="openTab(event, 'desafio')">Desafio Unicamp</button>
-        </div>
+<section class="projects" id="projetos">
+  <div class="section-label">Portfólio</div>
+  <div class="section-title">Projetos, Pesquisa & Extensão</div>
 
-        <div id="oil" class="tab-content active">
-            <h3 class="project-title">Iniciação Científica: Predição de Vazão de Petróleo</h3>
-            <p class="project-meta">Deep Learning // UNICAMP // Pesquisa Acadêmica</p>
-            <div class="project-description">
-                <p>Nesta pesquisa orientada pelo Prof. Dr. João Roberto Bertini Junior, enfrento o desafio da <strong>escassez de dados em campos de petróleo recém-descobertos</strong>. Utilizo técnicas de <em>Domain Adaptation</em> e <em>Transfer Learning</em> para transpor o conhecimento de campos maduros para novos poços.</p>
-                <br>
-                <p>O coração técnico do projeto envolve a implementação de <strong>arquiteturas híbridas CNN-LSTM</strong>. As camadas convolucionais extraem padrões morfológicos dos sinais geofísicos, enquanto as camadas LSTM tratam a dependência temporal da vazão. O objetivo é reduzir drasticamente o erro de predição em cenários de dados limitados (Small Data).</p>
-            </div>
-            <div class="tag-group">
-                <span class="tag">TensorFlow</span><span class="tag">LSTM</span><span class="tag">Domain Adaptation</span>
-            </div>
-            <div class="project-links">
-                <a href="http://lattes.cnpq.br/5462019420393495" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-graduation-cap"></i> Ver Lattes</a>
-            </div>
-        </div>
+  <div class="tabs-bar">
+    <button class="tab-btn active" onclick="openTab(event,'jwt')">JWT Auth API</button>
+    <button class="tab-btn" onclick="openTab(event,'oil')">Petrofísica & Deep Learning</button>
+    <button class="tab-btn" onclick="openTab(event,'summarizer')">PDF Summarizer IA</button>
+    <button class="tab-btn" onclick="openTab(event,'erp')">SaaS & BI Analytics</button>
+    <button class="tab-btn" onclick="openTab(event,'ideia')">Projeto IDEIA</button>
+    <button class="tab-btn" onclick="openTab(event,'desafio')">Desafio Unicamp</button>
+  </div>
 
-        <div id="summarizer" class="tab-content">
-            <h3 class="project-title">Analista de Documentos IA (PDF Summarizer)</h3>
-            <p class="project-meta">NLP // Generative AI // Streamlit</p>
-            <div class="project-description">
-                <p>Desenvolvi uma aplicação end-to-end que resolve a fadiga de leitura de documentos técnicos longos. O sistema utiliza a API do <strong>Google Gemini 1.5 Flash</strong> para realizar processamento de linguagem natural em tempo real sobre arquivos PDF.</p>
-                <br>
-                <p>Implementei Engenharia de Prompt avançada e travas de backend para controle de consumo de tokens, garantindo uma ferramenta escalável para resumos, análises técnicas e traduções contextuais.</p>
-            </div>
-            <div class="tag-group">
-                <span class="tag">Python</span><span class="tag">Gemini API</span><span class="tag">Streamlit</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" class="btn-link btn-github"><i class="fa-brands fa-github"></i> Ver Código</a>
-                <a href="https://pdf-summarizer-felipe-terossi.streamlit.app" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-rocket"></i> Testar App</a>
-            </div>
-        </div>
+  <div id="jwt" class="tab-panel active">
+    <div class="proj-left">
+      <div class="proj-badge">Backend · Full-stack · Segurança</div>
+      <h3 class="proj-title">API REST de Autenticação com JWT</h3>
+      <p class="proj-meta">Node.js · TypeScript · PostgreSQL · React</p>
+      <div class="proj-desc">
+        <p>API de autenticação production-ready implementando o padrão de dois tokens JWT: access token de curta duração (15 min) verificado sem banco de dados, e refresh token persistido para renovação automática de sessão.</p>
+        <p>Arquitetura em camadas (routes → controllers → services → utils), middleware de proteção de rotas, hash de senhas com bcrypt e frontend React com interceptors Axios para renovação transparente de tokens.</p>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/Felipe-Coelho-Terossi/API-REST-de-autentica-o-com-JWT" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+        <a href="https://a-pi-rest-com-autenticacao-jwt.vercel.app" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">Express</span>
+        <span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">JWT</span>
+        <span class="tag">bcryptjs</span><span class="tag">React</span><span class="tag">Axios</span>
+        <span class="tag">Render</span><span class="tag">Neon</span><span class="tag">Vercel</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Destaques técnicos</h4>
+        <div class="highlight-row"><i class="fa-solid fa-shield-halved"></i> Duplo token: access (15min) + refresh (7 dias)</div>
+        <div class="highlight-row"><i class="fa-solid fa-layer-group"></i> Arquitetura em camadas com separação de responsabilidades</div>
+        <div class="highlight-row"><i class="fa-solid fa-rotate"></i> Renovação automática de sessão via interceptors</div>
+        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon PostgreSQL + Vercel</div>
+      </div>
+    </div>
+  </div>
 
-        <div id="erp" class="tab-content">
-            <h3 class="project-title">Sistema de Gestão ERP Completo (SaaS)</h3>
-            <p class="project-meta">Engenharia de Software // Data Analytics // Bancos de Dados</p>
-            <div class="project-description">
-                <p>Criação end-to-end de um <strong>Sistema ERP (Software as a Service)</strong> projetado para gestão comercial. O projeto simula a arquitetura de aplicações corporativas reais, incluindo sistemas de Autenticação, PDV interativo e gestão de estoque.</p>
-                <br>
-                <p>Destaque para a construção de um <strong>Dashboard de Business Intelligence</strong> com Plotly Graph Objects, realizando o tratamento de datas e cálculo de lucro líquido em tempo real utilizando Pandas sobre uma base SQLite.</p>
-            </div>
-            <div class="tag-group">
-                <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly (BI)</span><span class="tag">SQLite</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/Felipe-Coelho-Terossi/ERP-Pastelaria-Python.git" target="_blank" class="btn-link btn-github"><i class="fa-brands fa-github"></i> Ver Código</a>
-                <a href="https://gestao-pastel-felipe-terossi.streamlit.app/" target="_blank" class="btn-link btn-demo"><i class="fa-solid fa-rocket"></i> Testar App</a>
-            </div>
-        </div>
+  <div id="oil" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">Pesquisa Acadêmica · Deep Learning</div>
+      <h3 class="proj-title">IC: Predição de Vazão de Petróleo</h3>
+      <p class="proj-meta">Deep Learning · UNICAMP · Transfer Learning</p>
+      <div class="proj-desc">
+        <p>Iniciação científica orientada pelo Prof. Dr. João Roberto Bertini Junior. O desafio central é a escassez de dados em campos recém-descobertos — resolvido com Domain Adaptation e Transfer Learning de campos maduros.</p>
+        <p>Implementação de arquiteturas híbridas CNN-LSTM: camadas convolucionais extraem padrões morfológicos dos sinais geofísicos enquanto LSTM trata a dependência temporal da vazão, reduzindo o erro em cenários de Small Data.</p>
+      </div>
+      <div class="proj-links">
+        <a href="http://lattes.cnpq.br/5462019420393495" target="_blank" class="btn-demo"><i class="fa-solid fa-graduation-cap"></i> Ver Lattes</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">TensorFlow</span><span class="tag">CNN-LSTM</span><span class="tag">Transfer Learning</span>
+        <span class="tag">Domain Adaptation</span><span class="tag">Small Data</span><span class="tag">Python</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Destaques técnicos</h4>
+        <div class="highlight-row"><i class="fa-solid fa-brain"></i> Arquitetura híbrida CNN-LSTM</div>
+        <div class="highlight-row"><i class="fa-solid fa-arrows-rotate"></i> Domain Adaptation entre campos de petróleo</div>
+        <div class="highlight-row"><i class="fa-solid fa-database"></i> Foco em cenários Small Data</div>
+      </div>
+    </div>
+  </div>
 
-        <div id="ideia" class="tab-content">
-            <h3 class="project-title">Projeto IDEIA: Altas Habilidades & Tecnologia</h3>
-            <p class="project-meta">Extensão Universitária // Educação // FT-Unicamp</p>
-            <div class="project-description">
-                <p>Atuo como mentor no <strong>Projeto IDEIA</strong> (Iniciativas para o Desenvolvimento de Estudantes com Altas Habilidades), desenvolvido pela Faculdade de Tecnologia da Unicamp em parceria com o Nexus. O projeto foi destaque na <strong>Gazeta de Limeira</strong> pelo seu impacto no acolhimento e desenvolvimento intelectual de jovens talentos.</p>
-                <br>
-                <p>Conduzo oficinas temáticas no <em>Explora</em> (Espaço de Inovação da FT) focadas em <strong>programação, eletrônica, modelagem 3D e circuitos</strong>, atuando como multiplicador de conhecimento e estimulando a criatividade e o potencial científico de crianças e adolescentes.</p>
-            </div>
-            <div class="tag-group">
-                <span class="tag">Educação</span><span class="tag">Python</span><span class="tag">Mentoria</span><span class="tag">Altas Habilidades</span>
-            </div>
-        </div>
+  <div id="summarizer" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">NLP · Generative AI · Deploy</div>
+      <h3 class="proj-title">Analista de Documentos com IA</h3>
+      <p class="proj-meta">Gemini API · Streamlit · Prompt Engineering</p>
+      <div class="proj-desc">
+        <p>Aplicação end-to-end para análise de documentos técnicos longos via Google Gemini 1.5 Flash. Suporta resumos, análises técnicas e traduções contextuais com controle de consumo de tokens via Prompt Engineering avançado.</p>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+        <a href="https://pdf-summarizer-felipe-terossi.streamlit.app" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Gemini API</span><span class="tag">Streamlit</span>
+        <span class="tag">NLP</span><span class="tag">Prompt Engineering</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Destaques técnicos</h4>
+        <div class="highlight-row"><i class="fa-solid fa-file-pdf"></i> Processamento de PDFs em tempo real</div>
+        <div class="highlight-row"><i class="fa-solid fa-sliders"></i> Controle de tokens via Prompt Engineering</div>
+        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy ativo no Streamlit Cloud</div>
+      </div>
+    </div>
+  </div>
 
-        <div id="desafio" class="tab-content">
-            <h3 class="project-title">Desafio Unicamp de Empreendedorismo</h3>
-            <p class="project-meta">Business // Inovação // Agência Inova Unicamp</p>
-            <div class="project-description">
-                <p>Participação no <strong>Desafio Unicamp</strong>, a maior competição de empreendedorismo baseada em tecnologias da universidade. O foco é transformar patentes e softwares desenvolvidos na academia em modelos de negócios viáveis para o mercado.</p>
-                <br>
-                <p>Utilizo metodologias de <strong>Design Thinking, Lean Startup e Business Model Canvas</strong> para estruturar propostas de valor e planos de Go-to-Market, conectando a fronteira do conhecimento científico com as demandas reais de inovação corporativa.</p>
-            </div>
-            <div class="tag-group">
-                <span class="tag">Inovação</span><span class="tag">Business Model</span><span class="tag">Empreendedorismo</span>
-            </div>
-        </div>
-    </section>
+  <div id="erp" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">Engenharia de Software · BI · SaaS</div>
+      <h3 class="proj-title">Sistema de Gestão ERP Completo</h3>
+      <p class="proj-meta">Python · Streamlit · Pandas · Plotly · SQLite</p>
+      <div class="proj-desc">
+        <p>ERP completo simulando arquitetura corporativa real: autenticação, PDV interativo e gestão de estoque. Dashboard de Business Intelligence com Plotly Graph Objects, cálculo de lucro líquido em tempo real e análise temporal com Pandas sobre SQLite.</p>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/Felipe-Coelho-Terossi/ERP-Pastelaria-Python.git" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+        <a href="https://gestao-pastel-felipe-terossi.streamlit.app/" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span>
+        <span class="tag">Plotly</span><span class="tag">SQLite</span><span class="tag">BI</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Destaques técnicos</h4>
+        <div class="highlight-row"><i class="fa-solid fa-chart-line"></i> Dashboard BI com Plotly Graph Objects</div>
+        <div class="highlight-row"><i class="fa-solid fa-cash-register"></i> PDV interativo com gestão de estoque</div>
+        <div class="highlight-row"><i class="fa-solid fa-database"></i> Persistência SQLite com análise Pandas</div>
+      </div>
+    </div>
+  </div>
 
-    <footer id="contato">
-        <h2 style="font-size: 2rem; margin-bottom: 10px;">Vamos conversar?</h2>
-        <p style="color: var(--text-dim);">Estou sempre aberto a novos desafios e conexões.</p>
+  <div id="ideia" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">Extensão Universitária · Educação</div>
+      <h3 class="proj-title">Projeto IDEIA: Altas Habilidades & Tecnologia</h3>
+      <p class="proj-meta">FT-Unicamp · Nexus · Mentoria</p>
+      <div class="proj-desc">
+        <p>Mentor no Projeto IDEIA da Faculdade de Tecnologia da Unicamp, destaque na Gazeta de Limeira. Conduzo oficinas no Explora (Espaço de Inovação da FT) em programação, eletrônica, modelagem 3D e circuitos para jovens com altas habilidades.</p>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Educação</span><span class="tag">Python</span><span class="tag">Mentoria</span>
+        <span class="tag">Eletrônica</span><span class="tag">Modelagem 3D</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Impacto</h4>
+        <div class="highlight-row"><i class="fa-solid fa-newspaper"></i> Destaque na Gazeta de Limeira</div>
+        <div class="highlight-row"><i class="fa-solid fa-users"></i> Mentoria de jovens com altas habilidades</div>
+        <div class="highlight-row"><i class="fa-solid fa-flask"></i> Oficinas no Espaço de Inovação FT</div>
+      </div>
+    </div>
+  </div>
 
-        <div class="contact-grid">
-            <div class="contact-item">
-                <i class="fa-solid fa-phone"></i>
-                <a href="https://wa.me/5519981747992" target="_blank">(19) 98174-7992</a>
-            </div>
-            <div class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
-                <a href="mailto:felipeterossi2@gmail.com">felipeterossi2@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-linkedin"></i>
-                <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank">LinkedIn</a>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-github"></i>
-                <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank">GitHub</a>
-            </div>
-        </div>
-        <p style="margin-top: 50px; font-size: 0.8rem; color: #333;">© 2026 Felipe Coelho Terossi // Limeira, SP</p>
-    </footer>
+  <div id="desafio" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">Empreendedorismo · Inovação</div>
+      <h3 class="proj-title">Desafio Unicamp de Empreendedorismo</h3>
+      <p class="proj-meta">Agência Inova Unicamp · Business · Lean Startup</p>
+      <div class="proj-desc">
+        <p>Participação na maior competição de empreendedorismo baseada em tecnologias da Unicamp. Transformação de patentes e softwares acadêmicos em modelos de negócios viáveis usando Design Thinking, Lean Startup e Business Model Canvas.</p>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Design Thinking</span><span class="tag">Lean Startup</span>
+        <span class="tag">Business Model Canvas</span><span class="tag">Go-to-Market</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Metodologias</h4>
+        <div class="highlight-row"><i class="fa-solid fa-lightbulb"></i> Design Thinking aplicado</div>
+        <div class="highlight-row"><i class="fa-solid fa-rocket"></i> Lean Startup & MVP</div>
+        <div class="highlight-row"><i class="fa-solid fa-briefcase"></i> Business Model Canvas</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
+<footer id="contato">
+  <h2>Vamos conversar?</h2>
+  <p>Estou sempre aberto a novos desafios e conexões.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fa-brands fa-whatsapp"></i>
+      <p>WhatsApp</p>
+      <a href="https://wa.me/5519981747992" target="_blank">(19) 98174-7992</a>
+    </div>
+    <div class="contact-card">
+      <i class="fa-solid fa-envelope"></i>
+      <p>Email</p>
+      <a href="mailto:felipeterossi2@gmail.com">felipeterossi2@gmail.com</a>
+    </div>
+    <div class="contact-card">
+      <i class="fa-brands fa-linkedin"></i>
+      <p>LinkedIn</p>
+      <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank">Felipe Terossi</a>
+    </div>
+    <div class="contact-card">
+      <i class="fa-brands fa-github"></i>
+      <p>GitHub</p>
+      <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank">Felipe-Coelho-Terossi</a>
+    </div>
+  </div>
+  <p style="font-size:0.78rem;color:#2d3748">© 2026 Felipe Coelho Terossi · Limeira, SP</p>
+</footer>
+
+<script>
+function openTab(evt, name) {
+  document.querySelectorAll('.tab-panel').forEach(p => {
+    p.style.display = 'none';
+    p.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  var el = document.getElementById(name);
+  el.style.display = 'grid';
+  el.classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+</script>
 </body>
 </html>
