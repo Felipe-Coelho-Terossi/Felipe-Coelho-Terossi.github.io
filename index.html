@@ -102,9 +102,9 @@ footer p{color:var(--dim);margin-bottom:40px}
 
   <div class="tabs-bar">
     <button class="tab-btn active" onclick="openTab(event,'jwt')">JWT Auth API</button>
+    <button class="tab-btn" onclick="openTab(event,'todo')">Todo API Docker</button>
     <button class="tab-btn" onclick="openTab(event,'oil')">Petrofísica & Deep Learning</button>
     <button class="tab-btn" onclick="openTab(event,'summarizer')">PDF Summarizer IA</button>
-    <button class="tab-btn" onclick="openTab(event,'erp')">SaaS & BI Analytics</button>
     <button class="tab-btn" onclick="openTab(event,'ideia')">Projeto IDEIA</button>
     <button class="tab-btn" onclick="openTab(event,'desafio')">Desafio Unicamp</button>
   </div>
@@ -136,6 +136,37 @@ footer p{color:var(--dim);margin-bottom:40px}
         <div class="highlight-row"><i class="fa-solid fa-layer-group"></i> Arquitetura em camadas com separação de responsabilidades</div>
         <div class="highlight-row"><i class="fa-solid fa-rotate"></i> Renovação automática de sessão via interceptors</div>
         <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon PostgreSQL + Vercel</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="todo" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">DevOps · Docker · CI/CD</div>
+      <h3 class="proj-title">Todo API — Docker & CI/CD</h3>
+      <p class="proj-meta">Node.js · PostgreSQL · Docker · GitHub Actions</p>
+      <div class="proj-desc">
+        <p>API REST de tarefas completamente containerizada com Docker e pipeline de CI/CD automático via GitHub Actions. A cada push na branch main, os testes rodam automaticamente com banco real e a imagem é publicada no Docker Hub.</p>
+        <p>Banco de dados PostgreSQL persistido via Docker Volume, healthcheck garantindo ordem de inicialização dos containers, e deploy automático na nuvem via Render + Neon.</p>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/Felipe-Coelho-Terossi/Todo-API-Docker-CICD" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+        <a href="https://felipe-coelho-terossi.github.io/Todo-API-Docker-CICD/" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span>
+        <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Jest</span><span class="tag">Supertest</span><span class="tag">Render</span>
+        <span class="tag">Neon</span><span class="tag">Docker Hub</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Destaques técnicos</h4>
+        <div class="highlight-row"><i class="fa-brands fa-docker"></i> Containerização completa com Docker Compose</div>
+        <div class="highlight-row"><i class="fa-solid fa-gears"></i> Pipeline CI/CD: testes + build + push automático</div>
+        <div class="highlight-row"><i class="fa-solid fa-vial"></i> Testes integrados com banco PostgreSQL real</div>
+        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon + Docker Hub</div>
       </div>
     </div>
   </div>
@@ -190,33 +221,6 @@ footer p{color:var(--dim);margin-bottom:40px}
         <div class="highlight-row"><i class="fa-solid fa-file-pdf"></i> Processamento de PDFs em tempo real</div>
         <div class="highlight-row"><i class="fa-solid fa-sliders"></i> Controle de tokens via Prompt Engineering</div>
         <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy ativo no Streamlit Cloud</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="erp" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">Engenharia de Software · BI · SaaS</div>
-      <h3 class="proj-title">Sistema de Gestão ERP Completo</h3>
-      <p class="proj-meta">Python · Streamlit · Pandas · Plotly · SQLite</p>
-      <div class="proj-desc">
-        <p>ERP completo simulando arquitetura corporativa real: autenticação, PDV interativo e gestão de estoque. Dashboard de Business Intelligence com Plotly Graph Objects, cálculo de lucro líquido em tempo real e análise temporal com Pandas sobre SQLite.</p>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/Felipe-Coelho-Terossi/ERP-Pastelaria-Python.git" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
-        <a href="https://gestao-pastel-felipe-terossi.streamlit.app/" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span>
-        <span class="tag">Plotly</span><span class="tag">SQLite</span><span class="tag">BI</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Destaques técnicos</h4>
-        <div class="highlight-row"><i class="fa-solid fa-chart-line"></i> Dashboard BI com Plotly Graph Objects</div>
-        <div class="highlight-row"><i class="fa-solid fa-cash-register"></i> PDV interativo com gestão de estoque</div>
-        <div class="highlight-row"><i class="fa-solid fa-database"></i> Persistência SQLite com análise Pandas</div>
       </div>
     </div>
   </div>
