@@ -107,6 +107,7 @@ footer p{color:var(--dim);margin-bottom:40px}
     <button class="tab-btn" onclick="openTab(event,'summarizer')">PDF Summarizer IA</button>
     <button class="tab-btn" onclick="openTab(event,'ideia')">Projeto IDEIA</button>
     <button class="tab-btn" onclick="openTab(event,'desafio')">Desafio Unicamp</button>
+    <button class="tab-btn" onclick="openTab(event,'churn')">Churn Prediction ML</button>
   </div>
 
   <div id="jwt" class="tab-panel active">
@@ -167,6 +168,35 @@ footer p{color:var(--dim);margin-bottom:40px}
         <div class="highlight-row"><i class="fa-solid fa-gears"></i> Pipeline CI/CD: testes + build + push automático</div>
         <div class="highlight-row"><i class="fa-solid fa-vial"></i> Testes integrados com banco PostgreSQL real</div>
         <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon + Docker Hub</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="churn" class="tab-panel">
+    <div class="proj-left">
+      <div class="proj-badge">Machine Learning · Data Science · XGBoost</div>
+      <h3 class="proj-title">Predição de Churn com Machine Learning</h3>
+      <p class="proj-meta">Python · XGBoost · Optuna · SHAP · scikit-learn</p>
+      <div class="proj-desc">
+        <p>Pipeline completo de ciência de dados para prever cancelamento de clientes em uma operadora de telecom. Inclui análise exploratória, pré-processamento, comparação de algoritmos e otimização de hiperparâmetros.</p>
+        <p>Dataset desbalanceado (26,5% churn) tratado com class_weight. Hiperparâmetros otimizados com Optuna (busca bayesiana, 50 trials). Interpretabilidade com SHAP revelando tenure e tipo de contrato como principais fatores de cancelamento.</p>
+      </div>
+      <div class="proj-links">
+        <a href="https://github.com/Felipe-Coelho-Terossi/Churn-Prediction-ML-Telecom" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+      </div>
+    </div>
+    <div class="proj-right">
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">scikit-learn</span>
+        <span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">pandas</span>
+        <span class="tag">seaborn</span><span class="tag">EDA</span><span class="tag">Kaggle</span>
+      </div>
+      <div class="highlight-box">
+        <h4>Resultados</h4>
+        <div class="highlight-row"><i class="fa-solid fa-chart-line"></i> AUC-ROC: 0.849 após tuning com Optuna</div>
+        <div class="highlight-row"><i class="fa-solid fa-bullseye"></i> Recall de 81,6% — identifica 82 de cada 100 churns</div>
+        <div class="highlight-row"><i class="fa-solid fa-brain"></i> SHAP: tenure e contrato mensal como top features</div>
+        <div class="highlight-row"><i class="fa-solid fa-scale-balanced"></i> Desbalanceamento tratado com class_weight</div>
       </div>
     </div>
   </div>
