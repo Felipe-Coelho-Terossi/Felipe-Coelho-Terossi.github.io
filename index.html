@@ -110,6 +110,12 @@ section.challenge{padding:56px 0}
 .proj-item.done .status-dot{background:var(--accent)}
 .proj-item.next .status-dot{background:var(--accent2);animation:pulse 2s infinite}
 .proj-item.pending .status-dot{background:rgba(255,255,255,0.1)}
+a.proj-item{text-decoration:none;cursor:pointer}
+a.proj-item:hover{background:rgba(94,234,212,0.07);border-color:rgba(94,234,212,0.25)}
+a.proj-item:hover .proj-item-name{color:var(--accent)}
+a.proj-item .proj-item-name{transition:.2s}
+a.proj-item.next:hover{background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.25)}
+a.proj-item.next:hover .proj-item-name{color:var(--accent2)}
 .challenge-footer{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--border)}
 .area-pills{display:flex;gap:8px;flex-wrap:wrap}
 .area-pill{font-size:0.7rem;padding:4px 10px;border-radius:2px;border:1px solid var(--border)}
@@ -343,10 +349,10 @@ footer p{color:var(--muted2);margin-bottom:48px;font-size:0.95rem}
       </div>
 
       <div class="challenge-grid">
-        <div class="proj-item done"><div class="proj-item-num">01</div><div class="proj-item-name">JWT Auth API</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
-        <div class="proj-item done"><div class="proj-item-num">02</div><div class="proj-item-name">Churn Prediction ML</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></div>
-        <div class="proj-item done"><div class="proj-item-num">03</div><div class="proj-item-name">Docker + CI/CD</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></div>
-        <div class="proj-item next"><div class="proj-item-num">04</div><div class="proj-item-name">Dashboard Admin</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
+        <a href="https://github.com/Felipe-Coelho-Terossi/APi-Rest-com-autenticacao-JWT/blob/main/README.md" target="_blank" class="proj-item done"><div class="proj-item-num">01</div><div class="proj-item-name">JWT Auth API</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></a>
+        <a href="https://github.com/Felipe-Coelho-Terossi/Churn-Prediction-ML-Telecom/blob/main/README.md" target="_blank" class="proj-item done"><div class="proj-item-num">02</div><div class="proj-item-name">Churn Prediction ML</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></a>
+        <a href="https://github.com/Felipe-Coelho-Terossi/Todo-API-Docker-CICD/blob/main/README.md" target="_blank" class="proj-item done"><div class="proj-item-num">03</div><div class="proj-item-name">Docker + CI/CD</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></a>
+        <a href="https://github.com/Felipe-Coelho-Terossi/Admin-Dashboard/blob/main/README.md" target="_blank" class="proj-item next"><div class="proj-item-num">04</div><div class="proj-item-name">Dashboard Admin</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></a>
         <div class="proj-item pending"><div class="proj-item-num">05</div><div class="proj-item-name">Encurtador de URLs</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
         <div class="proj-item pending"><div class="proj-item-num">06</div><div class="proj-item-name">Chatbot com RAG</div><div class="proj-item-area">IA</div><div class="status-dot"></div></div>
         <div class="proj-item pending"><div class="proj-item-num">07</div><div class="proj-item-name">Finanças Pessoais</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
