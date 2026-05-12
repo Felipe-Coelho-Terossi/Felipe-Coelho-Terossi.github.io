@@ -5,67 +5,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Felipe Terossi | Portfolio</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif;scroll-behavior:smooth}
-:root{--bg:#020617;--card:rgba(15,23,42,0.85);--blue:#38bdf8;--purple:#818cf8;--text:#f1f5f9;--dim:#94a3b8;--border:rgba(255,255,255,0.07)}
-body{background:var(--bg);color:var(--text);line-height:1.6}
-nav{position:fixed;top:0;width:100%;padding:14px 0;background:rgba(2,6,23,0.92);backdrop-filter:blur(16px);z-index:1000;border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 24px}
-.logo{font-weight:700;font-size:1rem;color:var(--blue);letter-spacing:0.02em}
-.nav-links a{color:var(--dim);text-decoration:none;margin-left:28px;font-size:0.78rem;text-transform:uppercase;letter-spacing:1.2px;transition:.2s}
-.nav-links a:hover{color:var(--blue)}
-.hero{padding:160px 24px 90px;text-align:center;max-width:860px;margin:0 auto}
-.hero-badge{display:inline-block;padding:5px 14px;border:1px solid rgba(56,189,248,0.3);border-radius:20px;color:var(--blue);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
-.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:700;margin-bottom:20px;background:linear-gradient(160deg,#fff 40%,#475569);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
-.hero p{color:var(--dim);font-size:1.1rem;max-width:580px;margin:0 auto 36px;line-height:1.7}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{padding:11px 24px;background:var(--blue);color:#020617;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:.2s}
-.btn-primary:hover{opacity:.9}
-.btn-secondary{padding:11px 24px;border:1px solid rgba(255,255,255,0.15);color:var(--text);border-radius:8px;text-decoration:none;font-size:0.9rem;transition:.2s}
-.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
-.stats{display:flex;gap:40px;justify-content:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)}
-.stat-n{font-size:2rem;font-weight:700;color:#fff}
-.stat-l{font-size:0.8rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-section.projects{padding:80px 24px;max-width:1100px;margin:0 auto}
-.section-label{font-size:0.75rem;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
-.section-title{font-size:1.8rem;font-weight:700;margin-bottom:40px;color:#fff}
-.tabs-bar{display:flex;gap:6px;margin-bottom:0;overflow-x:auto;padding-bottom:0;scrollbar-width:none}
-.tabs-bar::-webkit-scrollbar{display:none}
-.tab-btn{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-bottom:none;color:var(--dim);padding:10px 20px;border-radius:8px 8px 0 0;cursor:pointer;white-space:nowrap;font-size:0.82rem;transition:.2s;font-family:'Inter',sans-serif}
-.tab-btn.active{background:var(--card);color:var(--blue);border-color:rgba(56,189,248,0.3);border-bottom:1px solid var(--card)}
-.tab-panel{background:var(--card);border:1px solid rgba(56,189,248,0.15);border-radius:0 12px 12px 12px;padding:44px;display:none;min-height:380px}
-.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:40px;animation:fin .35s ease}
-@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.proj-badge{display:inline-block;padding:3px 10px;background:rgba(56,189,248,0.1);color:var(--blue);border-radius:4px;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
-.proj-title{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
-.proj-meta{color:var(--blue);font-size:0.82rem;font-weight:500;margin-bottom:18px}
-.proj-desc{color:var(--dim);font-size:0.95rem;line-height:1.75}
-.proj-desc p+p{margin-top:12px}
-.proj-right{display:flex;flex-direction:column;justify-content:space-between}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
-.tag{font-size:0.72rem;padding:4px 11px;background:rgba(255,255,255,0.05);color:var(--dim);border-radius:4px;border:1px solid var(--border)}
-.proj-links{display:flex;gap:10px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border);margin-top:auto}
-.btn-gh{padding:9px 18px;background:rgba(255,255,255,0.07);color:#fff;border-radius:7px;text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:7px;transition:.2s;border:1px solid var(--border)}
-.btn-gh:hover{background:rgba(255,255,255,0.12)}
-.btn-demo{padding:9px 18px;background:var(--blue);color:#020617;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:7px;transition:.2s}
-.btn-demo:hover{opacity:.88}
-.highlight-box{background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.12);border-radius:10px;padding:20px;margin-top:16px}
-.highlight-box h4{font-size:0.8rem;color:var(--blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.highlight-row{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.85rem;color:var(--dim)}
-.highlight-row:last-child{border-bottom:none}
-.highlight-row i{color:var(--blue);width:16px;font-size:0.9rem}
-footer{padding:100px 24px;background:#010409;text-align:center;border-top:1px solid var(--border)}
-footer h2{font-size:2rem;font-weight:700;margin-bottom:10px}
-footer p{color:var(--dim);margin-bottom:40px}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;max-width:860px;margin:0 auto 50px}
-.contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:.2s}
-.contact-card:hover{border-color:rgba(56,189,248,0.3)}
-.contact-card i{color:var(--blue);font-size:1.4rem;margin-bottom:12px;display:block}
-.contact-card a{color:var(--dim);text-decoration:none;font-size:0.9rem;transition:.2s}
-.contact-card a:hover{color:var(--blue)}
-.contact-card p{color:#4a5568;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-@media(max-width:700px){.tab-panel.active{grid-template-columns:1fr}.stats{gap:24px}}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+:root{
+  --bg:#06080f;
+  --surface:#0c111c;
+  --surface2:#111827;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.11);
+  --accent:#5eead4;
+  --accent2:#818cf8;
+  --text:#f0f4f8;
+  --muted:#64748b;
+  --muted2:#94a3b8;
+  --ff-head:'Syne',sans-serif;
+  --ff-body:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-body);font-weight:300;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 0;background:rgba(6,8,15,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--ff-head);font-weight:800;font-size:1rem;letter-spacing:0.04em;color:var(--accent)}
+.nav-links a{font-family:var(--ff-body);color:var(--muted);text-decoration:none;margin-left:32px;font-size:0.78rem;text-transform:uppercase;letter-spacing:1.5px;transition:.2s}
+.nav-links a:hover{color:var(--text)}
+
+/* HERO */
+.hero{padding:160px 32px 100px;max-width:1080px;margin:0 auto;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(94,234,212,0.2);border-radius:2px;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--ff-head);font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:24px;max-width:800px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:1.05rem;color:var(--muted2);max-width:520px;line-height:1.8;margin-bottom:40px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{padding:12px 28px;background:var(--accent);color:#06080f;border-radius:2px;text-decoration:none;font-family:var(--ff-head);font-weight:700;font-size:0.85rem;letter-spacing:0.5px;transition:.2s}
+.btn-p:hover{opacity:.85}
+.btn-s{padding:12px 28px;border:1px solid var(--border2);color:var(--text);border-radius:2px;text-decoration:none;font-size:0.85rem;transition:.2s;display:flex;align-items:center;gap:8px}
+.btn-s:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{display:flex;gap:48px;margin-top:72px;padding-top:48px;border-top:1px solid var(--border)}
+.stat-n{font-family:var(--ff-head);font-size:2.2rem;font-weight:800;color:#fff}
+.stat-l{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+
+/* SECTIONS */
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.section-tag{font-size:0.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;font-weight:400}
+.section-h{font-family:var(--ff-head);font-size:2rem;font-weight:800;color:#fff;margin-bottom:16px}
+.section-sub{color:var(--muted2);font-size:0.95rem;max-width:480px;margin-bottom:56px;line-height:1.7}
+
+/* FEATURED PROJECTS */
+section.featured{padding:80px 0 0}
+.feat-grid{display:grid;gap:2px}
+.feat-card{background:var(--surface);border:1px solid var(--border);padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;transition:.3s;position:relative;overflow:hidden}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:.3s}
+.feat-card:hover{border-color:var(--border2)}
+.feat-card:hover::before{opacity:1}
+.feat-card:first-child{border-radius:8px 8px 0 0}
+.feat-card:last-child{border-radius:0 0 8px 8px}
+.feat-badge{display:inline-block;padding:3px 10px;border:1px solid rgba(94,234,212,0.2);color:var(--accent);font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;border-radius:2px}
+.feat-num{font-family:var(--ff-head);font-size:0.72rem;color:var(--muted);letter-spacing:2px;margin-bottom:8px}
+.feat-title{font-family:var(--ff-head);font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2}
+.feat-stack{color:var(--accent);font-size:0.82rem;margin-bottom:20px;font-weight:400}
+.feat-desc{color:var(--muted2);font-size:0.92rem;line-height:1.8}
+.feat-desc p+p{margin-top:12px}
+.feat-right{display:flex;flex-direction:column;justify-content:space-between}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.tag{font-size:0.7rem;padding:4px 10px;background:rgba(255,255,255,0.04);color:var(--muted2);border:1px solid var(--border);border-radius:2px}
+.hbox{background:rgba(94,234,212,0.04);border:1px solid rgba(94,234,212,0.1);border-radius:6px;padding:18px;margin-bottom:20px}
+.hbox h4{font-size:0.68rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.hrow{display:flex;align-items:center;gap:10px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.03);font-size:0.82rem;color:var(--muted2)}
+.hrow:last-child{border:none}
+.hrow i{color:var(--accent);width:16px;font-size:0.85rem}
+.proj-links{display:flex;gap:8px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--border);margin-top:auto}
+.btn-gh{padding:8px 16px;background:rgba(255,255,255,0.05);color:#fff;border-radius:4px;text-decoration:none;font-size:0.8rem;display:flex;align-items:center;gap:6px;transition:.2s;border:1px solid var(--border)}
+.btn-gh:hover{background:rgba(255,255,255,0.09)}
+.btn-demo{padding:8px 16px;background:var(--accent);color:#06080f;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:.2s}
+.btn-demo:hover{opacity:.85}
+
+/* CHALLENGE CARD */
+section.challenge{padding:56px 0}
+.challenge-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:48px;position:relative;overflow:hidden}
+.challenge-card::after{content:'20';position:absolute;right:-10px;top:-20px;font-family:var(--ff-head);font-size:160px;font-weight:800;color:rgba(255,255,255,0.02);line-height:1;pointer-events:none}
+.challenge-top{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;margin-bottom:40px}
+.challenge-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.2);border-radius:2px;font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+.challenge-title{font-family:var(--ff-head);font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.2}
+.challenge-desc{color:var(--muted2);font-size:0.92rem;line-height:1.8;max-width:560px}
+.progress-wrap{min-width:200px;text-align:right}
+.progress-nums{font-family:var(--ff-head);font-size:2.8rem;font-weight:800;color:#fff;line-height:1}
+.progress-nums span{font-size:1.2rem;color:var(--muted);font-weight:400}
+.progress-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;margin-top:4px}
+.progress-bar{width:200px;height:3px;background:rgba(255,255,255,0.07);border-radius:2px;margin-left:auto}
+.progress-fill{height:100%;width:20%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:2px;transition:width 1s ease}
+.challenge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:36px}
+.proj-item{background:var(--surface2);padding:14px 16px;border-radius:4px;transition:.2s;position:relative}
+.proj-item:hover{background:rgba(94,234,212,0.05);border-color:rgba(94,234,212,0.15)}
+.proj-item.done{border-left:2px solid var(--accent)}
+.proj-item.next{border-left:2px solid var(--accent2)}
+.proj-item.pending{border-left:2px solid rgba(255,255,255,0.08)}
+.proj-item-num{font-size:0.65rem;color:var(--muted);margin-bottom:4px;font-family:var(--ff-head)}
+.proj-item-name{font-size:0.8rem;color:var(--text);font-weight:400;line-height:1.3}
+.proj-item-area{font-size:0.68rem;color:var(--muted);margin-top:4px}
+.proj-item .status-dot{width:6px;height:6px;border-radius:50%;position:absolute;top:14px;right:14px}
+.proj-item.done .status-dot{background:var(--accent)}
+.proj-item.next .status-dot{background:var(--accent2);animation:pulse 2s infinite}
+.proj-item.pending .status-dot{background:rgba(255,255,255,0.1)}
+.challenge-footer{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--border)}
+.area-pills{display:flex;gap:8px;flex-wrap:wrap}
+.area-pill{font-size:0.7rem;padding:4px 10px;border-radius:2px;border:1px solid var(--border)}
+.area-pill.be{border-color:rgba(56,189,248,0.3);color:#38bdf8}
+.area-pill.fe{border-color:rgba(251,191,36,0.3);color:#fbbf24}
+.area-pill.ds{border-color:rgba(52,211,153,0.3);color:#34d399}
+.area-pill.do{border-color:rgba(167,139,250,0.3);color:#a78bfa}
+.area-pill.ia{border-color:rgba(249,115,22,0.3);color:#f97316}
+.area-pill.se{border-color:rgba(239,68,68,0.3);color:#ef4444}
+
+/* OTHER PROJECTS */
+section.other{padding:0 0 80px}
+.other-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.other-card{background:var(--surface);border:1px solid var(--border);padding:36px;transition:.3s;position:relative}
+.other-card:hover{border-color:var(--border2)}
+.other-card:first-child{border-radius:8px 0 0 8px}
+.other-card:last-child{border-radius:0 8px 8px 0}
+.other-badge{display:inline-block;padding:3px 10px;background:rgba(129,140,248,0.08);color:var(--accent2);border:1px solid rgba(129,140,248,0.15);font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;border-radius:2px}
+.other-title{font-family:var(--ff-head);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+.other-sub{font-size:0.8rem;color:var(--accent);margin-bottom:16px}
+.other-desc{color:var(--muted2);font-size:0.88rem;line-height:1.75}
+.other-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}
+.other-tag{font-size:0.68rem;padding:3px 8px;background:rgba(255,255,255,0.03);color:var(--muted);border:1px solid var(--border);border-radius:2px}
+.other-links{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:8px}
+
+/* FOOTER */
+footer{background:#03040a;border-top:1px solid var(--border);padding:100px 32px 60px;text-align:center}
+footer h2{font-family:var(--ff-head);font-size:2.4rem;font-weight:800;margin-bottom:12px}
+footer p{color:var(--muted2);margin-bottom:48px;font-size:0.95rem}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;max-width:760px;margin:0 auto 60px}
+.cc{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:22px;transition:.2s;text-align:center}
+.cc:hover{border-color:var(--border2)}
+.cc i{color:var(--accent);font-size:1.3rem;margin-bottom:10px;display:block}
+.cc p{color:var(--muted);font-size:0.68rem;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.cc a{color:var(--muted2);text-decoration:none;font-size:0.85rem;transition:.2s}
+.cc a:hover{color:var(--accent)}
+.foot-copy{font-size:0.75rem;color:var(--muted)}
+
+@media(max-width:768px){
+  .feat-card,.other-grid{grid-template-columns:1fr}
+  .challenge-top{grid-template-columns:1fr}
+  .challenge-grid{grid-template-columns:repeat(2,1fr)}
+  .progress-wrap{text-align:left}
+  .progress-bar{margin-left:0}
+  .hero-stats{gap:28px}
+}
 </style>
 </head>
 <body>
@@ -82,266 +172,242 @@ footer p{color:var(--dim);margin-bottom:40px}
 </nav>
 
 <header class="hero" id="sobre">
-  <div class="hero-badge">Disponível para estágio</div>
-  <h1>Engenharia de Software & Inteligência Artificial</h1>
+  <div class="hero-tag">Disponível para estágio</div>
+  <h1>Engenharia de Software<br>& <span>Inteligência Artificial</span></h1>
   <p>Estudante de Sistemas de Informação na UNICAMP, construindo soluções reais com Machine Learning, APIs e Engenharia de Dados.</p>
   <div class="hero-btns">
-    <a href="#projetos" class="btn-primary">Ver projetos</a>
-    <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="#projetos" class="btn-p">Ver projetos</a>
+    <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank" class="btn-s"><i class="fa-brands fa-github"></i> GitHub</a>
   </div>
-  <div class="stats">
-    <div><div class="stat-n">6+</div><div class="stat-l">Projetos</div></div>
+  <div class="hero-stats">
+    <div><div class="stat-n">20</div><div class="stat-l">Projetos</div></div>
     <div><div class="stat-n">3º</div><div class="stat-l">Semestre</div></div>
     <div><div class="stat-n">UNICAMP</div><div class="stat-l">Instituição</div></div>
   </div>
 </header>
 
-<section class="projects" id="projetos">
-  <div class="section-label">Portfólio</div>
-  <div class="section-title">Projetos, Pesquisa & Extensão</div>
-
-  <div class="tabs-bar">
-    <button class="tab-btn active" onclick="openTab(event,'jwt')">JWT Auth API</button>
-    <button class="tab-btn" onclick="openTab(event,'todo')">Todo API Docker</button>
-    <button class="tab-btn" onclick="openTab(event,'churn')">Churn Prediction ML</button>
-    <button class="tab-btn" onclick="openTab(event,'oil')">Petrofísica & Deep Learning</button>
-    <button class="tab-btn" onclick="openTab(event,'summarizer')">PDF Summarizer IA</button>
-    <button class="tab-btn" onclick="openTab(event,'ideia')">Projeto IDEIA</button>
-    <button class="tab-btn" onclick="openTab(event,'desafio')">Desafio Unicamp</button>
+<!-- FEATURED PROJECTS -->
+<section class="featured" id="projetos">
+  <div class="wrap">
+    <div class="section-tag">Portfólio</div>
+    <div class="section-h">Pesquisa & Extensão</div>
+    <div class="section-sub">Projetos com impacto real — pesquisa acadêmica, extensão universitária e empreendedorismo.</div>
   </div>
 
-  <div id="jwt" class="tab-panel active">
-    <div class="proj-left">
-      <div class="proj-badge">Backend · Full-stack · Segurança</div>
-      <h3 class="proj-title">API REST de Autenticação com JWT</h3>
-      <p class="proj-meta">Node.js · TypeScript · PostgreSQL · React</p>
-      <div class="proj-desc">
-        <p>API de autenticação production-ready implementando o padrão de dois tokens JWT: access token de curta duração (15 min) verificado sem banco de dados, e refresh token persistido para renovação automática de sessão.</p>
-        <p>Arquitetura em camadas (routes → controllers → services → utils), middleware de proteção de rotas, hash de senhas com bcrypt e frontend React com interceptors Axios para renovação transparente de tokens.</p>
+  <div class="wrap">
+    <div class="feat-grid">
+
+      <!-- IC Petrofísica -->
+      <div class="feat-card">
+        <div>
+          <div class="feat-num">01 — Pesquisa Acadêmica</div>
+          <div class="feat-badge">Iniciação Científica · Deep Learning</div>
+          <h3 class="feat-title">IC: Predição de Vazão de Petróleo</h3>
+          <p class="feat-stack">TensorFlow · CNN-LSTM · Transfer Learning · UNICAMP</p>
+          <div class="feat-desc">
+            <p>Pesquisa orientada pelo Prof. Dr. João Roberto Bertini Junior. Foco no desafio de escassez de dados em campos recém-descobertos, resolvido com Domain Adaptation e Transfer Learning de campos maduros.</p>
+            <p>Arquitetura híbrida CNN-LSTM: convolucionais extraem padrões morfológicos dos sinais geofísicos enquanto LSTM trata a dependência temporal da vazão, reduzindo o erro em cenários de Small Data.</p>
+          </div>
+          <div class="proj-links">
+            <a href="http://lattes.cnpq.br/5462019420393495" target="_blank" class="btn-demo"><i class="fa-solid fa-graduation-cap"></i> Lattes</a>
+          </div>
+        </div>
+        <div class="feat-right">
+          <div>
+            <div class="tags">
+              <span class="tag">TensorFlow</span><span class="tag">CNN-LSTM</span><span class="tag">Transfer Learning</span>
+              <span class="tag">Domain Adaptation</span><span class="tag">Small Data</span><span class="tag">Python</span>
+            </div>
+            <div class="hbox">
+              <h4>Destaques técnicos</h4>
+              <div class="hrow"><i class="fa-solid fa-brain"></i> Arquitetura híbrida CNN-LSTM</div>
+              <div class="hrow"><i class="fa-solid fa-arrows-rotate"></i> Domain Adaptation entre campos</div>
+              <div class="hrow"><i class="fa-solid fa-database"></i> Foco em cenários Small Data</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="proj-links">
-        <a href="https://github.com/Felipe-Coelho-Terossi/API-REST-de-autentica-o-com-JWT" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
-        <a href="https://a-pi-rest-com-autenticacao-jwt.vercel.app" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+
+      <!-- IDEIA -->
+      <div class="feat-card">
+        <div>
+          <div class="feat-num">02 — Extensão Universitária</div>
+          <div class="feat-badge">Mentoria · Educação · Inovação</div>
+          <h3 class="feat-title">Projeto IDEIA: Altas Habilidades & Tecnologia</h3>
+          <p class="feat-stack">FT-Unicamp · Nexus · Espaço de Inovação</p>
+          <div class="feat-desc">
+            <p>Mentor no Projeto IDEIA da Faculdade de Tecnologia da Unicamp, destaque na Gazeta de Limeira. Condução de oficinas no Explora em programação, eletrônica, modelagem 3D e circuitos para jovens com altas habilidades.</p>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+        <div class="feat-right">
+          <div>
+            <div class="tags">
+              <span class="tag">Educação</span><span class="tag">Python</span><span class="tag">Mentoria</span>
+              <span class="tag">Eletrônica</span><span class="tag">Modelagem 3D</span>
+            </div>
+            <div class="hbox">
+              <h4>Impacto</h4>
+              <div class="hrow"><i class="fa-solid fa-newspaper"></i> Destaque na Gazeta de Limeira</div>
+              <div class="hrow"><i class="fa-solid fa-users"></i> Mentoria de jovens com altas habilidades</div>
+              <div class="hrow"><i class="fa-solid fa-flask"></i> Oficinas no Espaço de Inovação FT</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">Express</span>
-        <span class="tag">PostgreSQL</span><span class="tag">Prisma</span><span class="tag">JWT</span>
-        <span class="tag">bcryptjs</span><span class="tag">React</span><span class="tag">Axios</span>
-        <span class="tag">Render</span><span class="tag">Neon</span><span class="tag">Vercel</span>
+
+      <!-- Desafio Unicamp -->
+      <div class="feat-card">
+        <div>
+          <div class="feat-num">03 — Empreendedorismo</div>
+          <div class="feat-badge">Inovação · Lean Startup · Business</div>
+          <h3 class="feat-title">Desafio Unicamp de Empreendedorismo</h3>
+          <p class="feat-stack">Agência Inova Unicamp · Design Thinking · Lean Startup</p>
+          <div class="feat-desc">
+            <p>Participação na maior competição de empreendedorismo baseada em tecnologias da Unicamp. Transformação de patentes e softwares acadêmicos em modelos de negócios viáveis usando metodologias ágeis e Business Model Canvas.</p>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+        <div class="feat-right">
+          <div>
+            <div class="tags">
+              <span class="tag">Design Thinking</span><span class="tag">Lean Startup</span>
+              <span class="tag">Business Model Canvas</span><span class="tag">Go-to-Market</span>
+            </div>
+            <div class="hbox">
+              <h4>Metodologias</h4>
+              <div class="hrow"><i class="fa-solid fa-lightbulb"></i> Design Thinking aplicado</div>
+              <div class="hrow"><i class="fa-solid fa-rocket"></i> Lean Startup & MVP</div>
+              <div class="hrow"><i class="fa-solid fa-briefcase"></i> Business Model Canvas</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="highlight-box">
-        <h4>Destaques técnicos</h4>
-        <div class="highlight-row"><i class="fa-solid fa-shield-halved"></i> Duplo token: access (15min) + refresh (7 dias)</div>
-        <div class="highlight-row"><i class="fa-solid fa-layer-group"></i> Arquitetura em camadas com separação de responsabilidades</div>
-        <div class="highlight-row"><i class="fa-solid fa-rotate"></i> Renovação automática de sessão via interceptors</div>
-        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon PostgreSQL + Vercel</div>
-      </div>
+
     </div>
   </div>
+</section>
 
-  <div id="todo" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">DevOps · Docker · CI/CD</div>
-      <h3 class="proj-title">Todo API — Docker & CI/CD</h3>
-      <p class="proj-meta">Node.js · PostgreSQL · Docker · GitHub Actions</p>
-      <div class="proj-desc">
-        <p>API REST de tarefas completamente containerizada com Docker e pipeline de CI/CD automático via GitHub Actions. A cada push na branch main, os testes rodam automaticamente com banco real e a imagem é publicada no Docker Hub.</p>
-        <p>Banco de dados PostgreSQL persistido via Docker Volume, healthcheck garantindo ordem de inicialização dos containers, e deploy automático na nuvem via Render + Neon.</p>
+<!-- PDF SUMMARIZER STANDALONE -->
+<section style="padding:56px 0 0">
+  <div class="wrap">
+    <div class="section-tag">Projeto Autoral</div>
+    <div class="section-h">Analista de Documentos com IA</div>
+    <div class="section-sub">Aplicação end-to-end para análise de documentos técnicos com Gemini API.</div>
+    <div class="other-grid" style="border-radius:8px;overflow:hidden">
+      <div class="other-card" style="border-radius:0">
+        <div class="other-badge">NLP · Generative AI · Deploy</div>
+        <h3 class="other-title">PDF Summarizer IA</h3>
+        <p class="other-sub">Gemini API · Streamlit · Prompt Engineering</p>
+        <p class="other-desc">Análise de documentos técnicos longos via Google Gemini 1.5 Flash. Suporta resumos, análises técnicas e traduções contextuais com controle de consumo de tokens via Prompt Engineering avançado.</p>
+        <div class="other-tags">
+          <span class="other-tag">Python</span><span class="other-tag">Gemini API</span>
+          <span class="other-tag">Streamlit</span><span class="other-tag">NLP</span><span class="other-tag">Prompt Engineering</span>
+        </div>
+        <div class="other-links">
+          <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
+          <a href="https://pdf-summarizer-felipe-terossi.streamlit.app" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
+        </div>
       </div>
-      <div class="proj-links">
-        <a href="https://github.com/Felipe-Coelho-Terossi/Todo-API-Docker-CICD" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
-        <a href="https://felipe-coelho-terossi.github.io/Todo-API-Docker-CICD/" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span>
-        <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">GitHub Actions</span>
-        <span class="tag">Jest</span><span class="tag">Supertest</span><span class="tag">Render</span>
-        <span class="tag">Neon</span><span class="tag">Docker Hub</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Destaques técnicos</h4>
-        <div class="highlight-row"><i class="fa-brands fa-docker"></i> Containerização completa com Docker Compose</div>
-        <div class="highlight-row"><i class="fa-solid fa-gears"></i> Pipeline CI/CD: testes + build + push automático</div>
-        <div class="highlight-row"><i class="fa-solid fa-vial"></i> Testes integrados com banco PostgreSQL real</div>
-        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy: Render + Neon + Docker Hub</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="churn" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">Machine Learning · Data Science · XGBoost</div>
-      <h3 class="proj-title">Predição de Churn com Machine Learning</h3>
-      <p class="proj-meta">Python · XGBoost · Optuna · SHAP · scikit-learn</p>
-      <div class="proj-desc">
-        <p>Pipeline completo de ciência de dados para prever cancelamento de clientes em uma operadora de telecom. Inclui análise exploratória, pré-processamento, comparação de algoritmos e otimização de hiperparâmetros.</p>
-        <p>Dataset desbalanceado (26,5% churn) tratado com class_weight. Hiperparâmetros otimizados com Optuna (busca bayesiana, 50 trials). Interpretabilidade com SHAP revelando tenure e tipo de contrato como principais fatores de cancelamento.</p>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/Felipe-Coelho-Terossi/Churn-Prediction-ML-Telecom" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">scikit-learn</span>
-        <span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">pandas</span>
-        <span class="tag">seaborn</span><span class="tag">EDA</span><span class="tag">Kaggle</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Resultados</h4>
-        <div class="highlight-row"><i class="fa-solid fa-chart-line"></i> AUC-ROC: 0.849 após tuning com Optuna</div>
-        <div class="highlight-row"><i class="fa-solid fa-bullseye"></i> Recall de 81,6% — identifica 82 de cada 100 churns</div>
-        <div class="highlight-row"><i class="fa-solid fa-brain"></i> SHAP: tenure e contrato mensal como top features</div>
-        <div class="highlight-row"><i class="fa-solid fa-scale-balanced"></i> Desbalanceamento tratado com class_weight</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="oil" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">Pesquisa Acadêmica · Deep Learning</div>
-      <h3 class="proj-title">IC: Predição de Vazão de Petróleo</h3>
-      <p class="proj-meta">Deep Learning · UNICAMP · Transfer Learning</p>
-      <div class="proj-desc">
-        <p>Iniciação científica orientada pelo Prof. Dr. João Roberto Bertini Junior. O desafio central é a escassez de dados em campos recém-descobertos — resolvido com Domain Adaptation e Transfer Learning de campos maduros.</p>
-        <p>Implementação de arquiteturas híbridas CNN-LSTM: camadas convolucionais extraem padrões morfológicos dos sinais geofísicos enquanto LSTM trata a dependência temporal da vazão, reduzindo o erro em cenários de Small Data.</p>
-      </div>
-      <div class="proj-links">
-        <a href="http://lattes.cnpq.br/5462019420393495" target="_blank" class="btn-demo"><i class="fa-solid fa-graduation-cap"></i> Ver Lattes</a>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">TensorFlow</span><span class="tag">CNN-LSTM</span><span class="tag">Transfer Learning</span>
-        <span class="tag">Domain Adaptation</span><span class="tag">Small Data</span><span class="tag">Python</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Destaques técnicos</h4>
-        <div class="highlight-row"><i class="fa-solid fa-brain"></i> Arquitetura híbrida CNN-LSTM</div>
-        <div class="highlight-row"><i class="fa-solid fa-arrows-rotate"></i> Domain Adaptation entre campos de petróleo</div>
-        <div class="highlight-row"><i class="fa-solid fa-database"></i> Foco em cenários Small Data</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="summarizer" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">NLP · Generative AI · Deploy</div>
-      <h3 class="proj-title">Analista de Documentos com IA</h3>
-      <p class="proj-meta">Gemini API · Streamlit · Prompt Engineering</p>
-      <div class="proj-desc">
-        <p>Aplicação end-to-end para análise de documentos técnicos longos via Google Gemini 1.5 Flash. Suporta resumos, análises técnicas e traduções contextuais com controle de consumo de tokens via Prompt Engineering avançado.</p>
-      </div>
-      <div class="proj-links">
-        <a href="https://github.com/Felipe-Coelho-Terossi/API-PDF-Summarizer" target="_blank" class="btn-gh"><i class="fa-brands fa-github"></i> Código</a>
-        <a href="https://pdf-summarizer-felipe-terossi.streamlit.app" target="_blank" class="btn-demo"><i class="fa-solid fa-rocket"></i> Demo ao vivo</a>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Python</span><span class="tag">Gemini API</span><span class="tag">Streamlit</span>
-        <span class="tag">NLP</span><span class="tag">Prompt Engineering</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Destaques técnicos</h4>
-        <div class="highlight-row"><i class="fa-solid fa-file-pdf"></i> Processamento de PDFs em tempo real</div>
-        <div class="highlight-row"><i class="fa-solid fa-sliders"></i> Controle de tokens via Prompt Engineering</div>
-        <div class="highlight-row"><i class="fa-solid fa-cloud"></i> Deploy ativo no Streamlit Cloud</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="ideia" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">Extensão Universitária · Educação</div>
-      <h3 class="proj-title">Projeto IDEIA: Altas Habilidades & Tecnologia</h3>
-      <p class="proj-meta">FT-Unicamp · Nexus · Mentoria</p>
-      <div class="proj-desc">
-        <p>Mentor no Projeto IDEIA da Faculdade de Tecnologia da Unicamp, destaque na Gazeta de Limeira. Conduzo oficinas no Explora (Espaço de Inovação da FT) em programação, eletrônica, modelagem 3D e circuitos para jovens com altas habilidades.</p>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Educação</span><span class="tag">Python</span><span class="tag">Mentoria</span>
-        <span class="tag">Eletrônica</span><span class="tag">Modelagem 3D</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Impacto</h4>
-        <div class="highlight-row"><i class="fa-solid fa-newspaper"></i> Destaque na Gazeta de Limeira</div>
-        <div class="highlight-row"><i class="fa-solid fa-users"></i> Mentoria de jovens com altas habilidades</div>
-        <div class="highlight-row"><i class="fa-solid fa-flask"></i> Oficinas no Espaço de Inovação FT</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="desafio" class="tab-panel">
-    <div class="proj-left">
-      <div class="proj-badge">Empreendedorismo · Inovação</div>
-      <h3 class="proj-title">Desafio Unicamp de Empreendedorismo</h3>
-      <p class="proj-meta">Agência Inova Unicamp · Business · Lean Startup</p>
-      <div class="proj-desc">
-        <p>Participação na maior competição de empreendedorismo baseada em tecnologias da Unicamp. Transformação de patentes e softwares acadêmicos em modelos de negócios viáveis usando Design Thinking, Lean Startup e Business Model Canvas.</p>
-      </div>
-    </div>
-    <div class="proj-right">
-      <div class="tags">
-        <span class="tag">Design Thinking</span><span class="tag">Lean Startup</span>
-        <span class="tag">Business Model Canvas</span><span class="tag">Go-to-Market</span>
-      </div>
-      <div class="highlight-box">
-        <h4>Metodologias</h4>
-        <div class="highlight-row"><i class="fa-solid fa-lightbulb"></i> Design Thinking aplicado</div>
-        <div class="highlight-row"><i class="fa-solid fa-rocket"></i> Lean Startup & MVP</div>
-        <div class="highlight-row"><i class="fa-solid fa-briefcase"></i> Business Model Canvas</div>
+      <div class="other-card" style="border-radius:0;display:flex;flex-direction:column;justify-content:center">
+        <div class="hbox" style="margin:0">
+          <h4>Destaques técnicos</h4>
+          <div class="hrow"><i class="fa-solid fa-file-pdf"></i> Processamento de PDFs em tempo real</div>
+          <div class="hrow"><i class="fa-solid fa-sliders"></i> Controle de tokens via Prompt Engineering</div>
+          <div class="hrow"><i class="fa-solid fa-cloud"></i> Deploy ativo no Streamlit Cloud</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CHALLENGE CARD -->
+<section class="challenge">
+  <div class="wrap">
+    <div class="section-tag">Desafio Técnico</div>
+    <div class="section-h">20 Projetos em 20 Dias</div>
+    <div class="section-sub">Sprint de aprendizado acelerado cobrindo todas as áreas do mercado — Backend, Frontend, Data Science, DevOps, Segurança e IA.</div>
+
+    <div class="challenge-card">
+      <div class="challenge-top">
+        <div>
+          <div class="challenge-badge"><i class="fa-solid fa-bolt" style="font-size:0.65rem"></i> Em andamento</div>
+          <h3 class="challenge-title">Sprint 20/20</h3>
+          <p class="challenge-desc">Durante a greve da UNICAMP, estruturei um desafio pessoal para cobrir o máximo de tecnologias do mercado em tempo recorde — alternando entre áreas para evitar fadiga e garantir amplitude técnica real.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-nums">4 <span>/ 20</span></div>
+          <div class="progress-label">concluídos</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+        </div>
+      </div>
+
+      <div class="challenge-grid">
+        <div class="proj-item done"><div class="proj-item-num">01</div><div class="proj-item-name">JWT Auth API</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
+        <div class="proj-item done"><div class="proj-item-num">02</div><div class="proj-item-name">Churn Prediction ML</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></div>
+        <div class="proj-item done"><div class="proj-item-num">03</div><div class="proj-item-name">Docker + CI/CD</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></div>
+        <div class="proj-item next"><div class="proj-item-num">04</div><div class="proj-item-name">Dashboard Admin</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">05</div><div class="proj-item-name">Encurtador de URLs</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">06</div><div class="proj-item-name">Chatbot com RAG</div><div class="proj-item-area">IA</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">07</div><div class="proj-item-name">Finanças Pessoais</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">08</div><div class="proj-item-name">Scanner de APIs</div><div class="proj-item-area">Segurança</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">09</div><div class="proj-item-name">Dashboard Streamlit</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">10</div><div class="proj-item-name">Terraform IaC</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">11</div><div class="proj-item-name">Real-time Chat</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">12</div><div class="proj-item-name">Pipeline ETL Airflow</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">13</div><div class="proj-item-name">API GraphQL</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">14</div><div class="proj-item-name">Analisador de Logs</div><div class="proj-item-area">Segurança</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">15</div><div class="proj-item-name">Clone do Notion</div><div class="proj-item-area">Frontend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">16</div><div class="proj-item-name">Filas RabbitMQ</div><div class="proj-item-area">Backend</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">17</div><div class="proj-item-name">Detecção de Fraude</div><div class="proj-item-area">Data Science</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">18</div><div class="proj-item-name">Grafana + Prometheus</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">19</div><div class="proj-item-name">Honeypot + Logging</div><div class="proj-item-area">Segurança</div><div class="status-dot"></div></div>
+        <div class="proj-item pending"><div class="proj-item-num">20</div><div class="proj-item-name">Kubernetes Micro</div><div class="proj-item-area">DevOps</div><div class="status-dot"></div></div>
+      </div>
+
+      <div class="challenge-footer">
+        <div class="area-pills">
+          <span class="area-pill be">Backend</span>
+          <span class="area-pill fe">Frontend</span>
+          <span class="area-pill ds">Data Science</span>
+          <span class="area-pill do">DevOps</span>
+          <span class="area-pill ia">IA</span>
+          <span class="area-pill se">Segurança</span>
+        </div>
+        <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank" class="btn-gh" style="border-radius:4px"><i class="fa-brands fa-github"></i> Ver todos os repos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer id="contato">
   <h2>Vamos conversar?</h2>
   <p>Estou sempre aberto a novos desafios e conexões.</p>
   <div class="contact-grid">
-    <div class="contact-card">
+    <div class="cc">
       <i class="fa-brands fa-whatsapp"></i>
       <p>WhatsApp</p>
       <a href="https://wa.me/5519981747992" target="_blank">(19) 98174-7992</a>
     </div>
-    <div class="contact-card">
+    <div class="cc">
       <i class="fa-solid fa-envelope"></i>
       <p>Email</p>
       <a href="mailto:felipeterossi2@gmail.com">felipeterossi2@gmail.com</a>
     </div>
-    <div class="contact-card">
+    <div class="cc">
       <i class="fa-brands fa-linkedin"></i>
       <p>LinkedIn</p>
       <a href="https://www.linkedin.com/in/felipe-terossi-5096163b8/" target="_blank">Felipe Terossi</a>
     </div>
-    <div class="contact-card">
+    <div class="cc">
       <i class="fa-brands fa-github"></i>
       <p>GitHub</p>
       <a href="https://github.com/Felipe-Coelho-Terossi" target="_blank">Felipe-Coelho-Terossi</a>
     </div>
   </div>
-  <p style="font-size:0.78rem;color:#2d3748">© 2026 Felipe Coelho Terossi · Limeira, SP</p>
+  <p class="foot-copy">© 2026 Felipe Coelho Terossi · Limeira, SP</p>
 </footer>
 
-<script>
-function openTab(evt, name) {
-  document.querySelectorAll('.tab-panel').forEach(p => {
-    p.style.display = 'none';
-    p.classList.remove('active');
-  });
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  var el = document.getElementById(name);
-  el.style.display = 'grid';
-  el.classList.add('active');
-  evt.currentTarget.classList.add('active');
-}
-</script>
 </body>
 </html>
